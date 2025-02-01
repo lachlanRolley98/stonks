@@ -1,0 +1,18 @@
+# Ignore virtual environments
+venv/
+env/
+.env/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore pip installs
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Ignote all csv and json files
+*.csv
+*.json
