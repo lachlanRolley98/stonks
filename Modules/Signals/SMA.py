@@ -12,7 +12,7 @@ def calculate_sma(data, window = 3):
     return sma
 
 # Calculate Score based on SMA
-def calculate_sma_score(data, window):
+def calculate_sma_score(data, window = 3):
     sma = calculate_sma(data, window)
     current_price = data[-1]['close']
 

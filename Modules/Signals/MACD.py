@@ -2,7 +2,6 @@
 # The MACD line is the difference between the 12-day EMA and the 26-day EMA, while the signal line is the 9-day EMA of the MACD line.
 # Buy signals occur when the MACD line crosses above the signal line, and sell signals occur when it crosses below
 
-import json
 
 import json
 

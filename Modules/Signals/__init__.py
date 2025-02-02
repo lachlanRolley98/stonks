@@ -12,3 +12,6 @@ from .RSI import calculate_rsi_score
 
 from .StochasticOscillator import calculate_stochastic_oscillator
 from .StochasticOscillator import calculate_stochastic_score
+
+from .Quick_Trend import calculate_trending_up
+from .Quick_Trend import calculate_trending_up_score
