@@ -1,0 +1,37 @@
+GIGA PARAMS:
+
+buy_threshold (4 to 10)
+This represents the score threshold needed to trigger a buy decision.
+Higher values make it harder to trigger a buy (more conservative).
+Lower values make the bot more aggressive, buying with weaker signals.
+
+bb_threshold (1.5, 2, 2.5, 3)
+This adjusts the sensitivity of the Bollinger Bands indicator.
+Bollinger Bands measure volatility, with the upper/lower bands set by a number of standard deviations from the moving average.
+Lower values (1.5) mean the bands are closer to the average, making it easier for prices to breach them (more signals).
+Higher values (3) widen the bands, making breaches rarer (fewer signals).
+
+macd_fast (5, 10, 12)
+This defines the short-term EMA period for the MACD (Moving Average Convergence Divergence) indicator.
+A shorter period (5) reacts quickly to price changes, giving more frequent but possibly less reliable signals.
+A longer period (12) smooths out the noise, giving fewer but stronger signals.
+
+macd_slow (26, 50, 100)
+This defines the long-term EMA period in MACD.
+Smaller values (26) make the MACD more responsive to recent price changes.
+Larger values (100) make it slower, focusing on longer-term trends.
+
+rsi_period (14, 21)
+This is the lookback period for the Relative Strength Index (RSI).
+14 is the standard, offering a balanced view.
+21 is slower, reducing false signals in volatile markets.
+
+sma_short (5, 10, 15)
+The short-term Simple Moving Average (SMA) period.
+A smaller period (5) reacts faster to recent price changes, often used to capture short-term trends.
+A larger period (15) smooths out noise, useful for more stable signals.
+
+sma_long (50, 100, 200)
+The long-term SMA period.
+50 is common for medium-term trends, 100 for longer trends, and 200 is the classic indicator for long-term trend direction.
+When the short SMA crosses above the long SMA, it's a bullish sign (and vice versa for bearish).

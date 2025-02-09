@@ -41,24 +41,21 @@ def calculate_composite_scoreX(ma_score, macd_score, bollinger_score, stochastic
 
 # This one seems to find stocks at the top of the top of the boiler bands moving up - to test
 def calculate_composite_score(bollinger_score, trend_score, so_score):
-    """
-    Computes a composite score (0-10) based on Bollinger Bands, price trend, and RSI.
+    # Ok so I want to filter out only things have are a 6 to 10 in boiler band
+    # It also has to have a trend score greater than 6
+    # after that so is just a bonus
+    score = -1
+    if bollinger_score >= 6 and trend_score >= 3.5:
 
-    - Bollinger Score (Weight 40%): Indicates if price is near the lower band (10 = strong buy).
-    - Trend Score (Weight 40%): Measures recent price momentum (0 = strong downtrend, 10 = strong uptrend).
-    - RSI Score (Weight 20%): Detects oversold conditions (10 = very oversold).
-    - SO Score (Weight 20%): Detects oversold conditions (10 = very oversold).
-    """
+        weights = [0.4, 0.4, 0.2]  # 40% Bollinger, 40% Trend, 20% SO   (Change this to something better)
+        score = (
+            bollinger_score * weights[0] +
+            trend_score * weights[1] +
+            so_score * weights[2]
+        )
 
-    weights = [0.4, 0.4, 0.2]  # 40% Bollinger, 40% Trend, 20% SO   (Change this to something better)
+    return round(score, 2)
 
-    composite_score = (
-        bollinger_score * weights[0] +
-        trend_score * weights[1] +
-        so_score * weights[2]
-    )
-
-    return round(composite_score, 2)
 
 # Then we can grab all the data from inside the folder Historical_Data/IBK_Today and do stuff with it
 # Run through all the files in the folder
@@ -100,7 +97,7 @@ for filename in os.listdir('../../Historical_Data/IBK_Today_NYSE'):
 # Create a DataFrame from the results
 df = pd.DataFrame(results, columns=['name', 'bb', 'tu', 'so', 'composite_score'])
 # Sort the DataFrame by the composite score in descending order
-df = df.sort_values(by='bb', ascending=False)
+df = df.sort_values(by='composite_score', ascending=False)
 # Save the DataFrame to a CSV file
 df.to_csv('output_NYSE.csv', index=False)
 #Finished

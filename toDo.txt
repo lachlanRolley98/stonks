@@ -1,0 +1,5 @@
+1 - make buy function
+2 - make sell fucntion
+3 - make backtest ability
+4 - make tracking / history of trades functionality
+5 - Note we also want to check a stock is good even if it meets our buy. it might be trading at $0.01 or not have much buys/sells so need a strong vito policy
